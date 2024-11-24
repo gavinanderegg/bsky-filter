@@ -6,17 +6,25 @@ $(document).ready(() => {
 	sock.onmessage = (event) => {
 		count += 1;
 
+		const data = JSON.parse(event.data);
+
 		try {
-			const data = JSON.parse(event.data);
-			console.log(`Received: ${JSON.stringify(data, null, 2)}`);
+			const skeet = data.commit.record.text ?? '';
+
+			if (skeet.toLowerCase().indexOf('xbox') !== -1) {
+				console.log(skeet);
+				console.log(data.did);
+				// resolve here: https://plc.directory/ + data.did
+			}
+
 		} catch (e) {
-			console.log(`Raw message: ${event.data}`);
+
 		}
 
-		if (count > 11) {
-			sock.close();
-			sock = null;
-		}
+		// if (count > 20) {
+		// 	sock.close();
+		// 	sock = null;
+		// }
 	};
 });
 
