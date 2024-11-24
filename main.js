@@ -12,9 +12,11 @@ $(document).ready(() => {
 			const skeet = data.commit.record.text ?? '';
 
 			if (skeet.toLowerCase().indexOf('xbox') !== -1) {
-				console.log(skeet);
-				console.log(data.did);
-				// resolve here: https://plc.directory/ + data.did
+				$.ajax('https://plc.directory/' + data.did)
+					.done((res) => {
+						console.log(skeet);
+						console.log(res.alsoKnownAs[0]);
+					});
 			}
 
 		} catch (e) {
