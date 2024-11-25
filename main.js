@@ -1,12 +1,9 @@
 $(document).ready(() => {
 	var jetstreamURL = 'wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post';
 	var sock = null;
+	var counter = 0;
 
 	$('#goButton').on('click', () => {
-		if ($('#clearCheck').prop('checked')) {
-			$('#skeetContainer').empty();
-		}
-
 		let query = $('#hashtagInput').val();
 
 		if (query.length > 0) {
@@ -15,12 +12,17 @@ $(document).ready(() => {
 	});
 
 	$('#stopButton').on('click', () => {
-		if ($('#clearCheck').prop('checked')) {
-			$('#skeetContainer').empty();
-		}
-
 		closeSocket();
 	});
+
+	$('#clearButton').on('click', () => {
+		$('#skeetContainer').empty();
+	});
+
+	function updateCounter() {
+		counter += 1;
+		$('header #counter span.count').html(counter);
+	}
 
 	function startSocket(hashtag) {
 		// Ensure we're starting with a fresh websocket
@@ -29,6 +31,8 @@ $(document).ready(() => {
 		sock = new WebSocket(jetstreamURL);
 
 		sock.onmessage = (event) => {
+			updateCounter();
+
 			const data = JSON.parse(event.data);
 
 			try {

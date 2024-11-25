@@ -8,7 +8,11 @@
 
 <body>
 	<header>
-		<input type="text" name="hashtagInput" id="hashtagInput"> <button id="goButton">go</button> <button id="stopButton">stop</button> <button id="clearButton">clear</button>
+		<div>
+			<input type="text" name="hashtagInput" id="hashtagInput"> <button id="goButton">go</button> <button id="stopButton">stop</button> <button id="clearButton">clear</button>
+		</div>
+
+		<div id="counter">Posts encountered: <span class="count">0</span></div>
 	</header>
 
 	<div id="content">
@@ -16,11 +20,6 @@
 			<div id="skeetContainer"></div>
 		</main>
 	</div>
-
-	<footer>
-		<div id="running">Stopped</div>
-		<div id="counter"></div>
-	</footer>
 
 	<script src="./jquery.js"></script>
 	<script src="./main.js"></script>
