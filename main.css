@@ -28,12 +28,14 @@ header {
 	}
 
 	input {
+		border: 2px solid rgba(1, 1, 1, 0.5);
 		min-width: 14em;
 		padding: 0.2em;
 
 		@media screen and (max-width: 680px) {
 			display: block;
 			margin: auto;
+			margin-bottom: 0.4em;
 		}
 	}
 
