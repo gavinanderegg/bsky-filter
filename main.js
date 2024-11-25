@@ -1,33 +1,42 @@
 $(document).ready(() => {
-	var count = 0;
+	let count = 0;
+	let jetstreamURL = 'wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post';
+	let sock = null;
 
-	let sock = new WebSocket('wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post');
+	function startSocket(hashtag) {
+		sock = new WebSocket(jetstreamURL);
 
-	sock.onmessage = (event) => {
-		count += 1;
+		sock.onmessage = (event) => {
+			count += 1;
 
-		const data = JSON.parse(event.data);
+			const data = JSON.parse(event.data);
 
-		try {
-			const skeet = data.commit.record.text ?? '';
+			try {
+				const skeet = data.commit.record.text ?? false;
 
-			if (skeet.toLowerCase().indexOf('xbox') !== -1) {
-				$.ajax('https://plc.directory/' + data.did)
-					.done((res) => {
-						console.log(skeet);
-						console.log(res.alsoKnownAs[0]);
+				if (skeet.toLowerCase().indexOf(hashtag) !== -1) {
+					$.ajax('https://plc.directory/' + data.did).done((res) => {
+						let username = res.alsoKnownAs[0] ?? false;
+
+						if (skeet && username) {
+							addSkeetSheet(skeet, username)
+						}
 					});
+				}
+			} catch (e) {
+				// I only really care if there's content I can use
 			}
+		};
+	}
 
-		} catch (e) {
+	function addSkeetSheet(skeet, username) {
 
-		}
+	}
 
-		// if (count > 20) {
-		// 	sock.close();
-		// 	sock = null;
-		// }
-	};
+	function closeSocket() {
+		sock.close();
+		sock = null;
+	}
 });
 
 
