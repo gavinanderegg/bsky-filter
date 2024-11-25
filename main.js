@@ -62,8 +62,8 @@ $(document).ready(() => {
 
 		let skeetItem = `
 			<div class="skeetItem">
-				<div class="skeetText"><a href="${postURL}">${skeet}</a></div>
-				<div class="skeetUsername"> — <a href="${userURL}">${revProto}</a></div>
+				<div class="skeetText"><a href="${postURL}" target="_blank">${skeet}</a></div>
+				<div class="skeetUsername"> — <a href="${userURL}" target="_blank">${revProto}</a></div>
 			</div>
 		`;
 
