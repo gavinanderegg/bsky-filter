@@ -9,12 +9,16 @@ body {
 	font-size: 1.2em;
 	font-color: #222;
 	background: #FFF;
+
+	@media screen and (max-width: 680px) {
+		font-size: 0.8em;
+	}
 }
 
 header {
-	background: #DDD;
+	background: linear-gradient(0deg, #DDE 0%, #99A 100%);
+	border-bottom: 2px solid #BBB;
 	text-align: center;
-	border-bottom: 2px solid #CCC;
 	padding: 1.2em 0.8em 0.8em 0.8em;
 
 	input, button {
@@ -24,7 +28,13 @@ header {
 	}
 
 	input {
+		min-width: 14em;
 		padding: 0.2em;
+
+		@media screen and (max-width: 680px) {
+			display: block;
+			margin: auto;
+		}
 	}
 
 	button {
@@ -35,14 +45,17 @@ header {
 
 	button#goButton {
 		background: rgba(0, 255, 0, 0.2);
+		background: linear-gradient(0deg, rgba(238,255,238,1) 0%, rgba(160,200,160,1) 100%);
 	}
 
 	button#stopButton {
 		background: rgba(255, 0, 0, 0.2);
+		background: linear-gradient(0deg, rgba(255,238,238,1) 0%, rgba(200,160,160,1) 100%);
 	}
 
 	button#clearButton {
 		background: rgba(0, 0, 0, 0.2);
+		background: linear-gradient(0deg, rgba(238,238,238,1) 0%, rgba(160,160,160,1) 100%);
 	}
 
 	#counter {
