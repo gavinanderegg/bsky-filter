@@ -1,21 +1,26 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Bluesky Hashtag Follower by Gavin Anderegg</title>
+	<title>Bluesky Filter by Gavin Anderegg</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="./main.css">
 </head>
 
 <body>
 	<header>
-		# <input type="text" name="hashtagInput" id="hashtagInput"> <input type="checkbox" name="clearCheck" id="clearCheck"> clear? <button id="goButton">go</button> <button id="stopButton">stop</button>
+		<input type="text" name="hashtagInput" id="hashtagInput"> <button id="goButton">go</button> <button id="stopButton">stop</button> <button id="clearButton">clear</button>
 	</header>
 
-	<main>
-		<div id="skeetContainer"></div>
-	</main>
+	<div id="content">
+		<main>
+			<div id="skeetContainer"></div>
+		</main>
+	</div>
 
-	<footer></footer>
+	<footer>
+		<div id="running">Stopped</div>
+		<div id="counter"></div>
+	</footer>
 
 	<script src="./jquery.js"></script>
 	<script src="./main.js"></script>

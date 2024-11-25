@@ -10,8 +10,6 @@ $(document).ready(() => {
 		let query = $('#hashtagInput').val();
 
 		if (query.length > 0) {
-			console.log('starting with ' + query);
-
 			startSocket(query);
 		}
 	});
@@ -33,13 +31,7 @@ $(document).ready(() => {
 		sock.onmessage = (event) => {
 			const data = JSON.parse(event.data);
 
-			// get the post URL?
-
-
 			try {
-				// console.log(data);
-				// https://plc.directory/did:plc:olakmyzv3okn6djhbcpkg2rl
-
 				const skeet = data.commit.record.text ?? false;
 				const postID = data.commit.rkey ?? false;
 
@@ -71,7 +63,7 @@ $(document).ready(() => {
 			</div>
 		`;
 
-		container.append(skeetItem);
+		container.prepend(skeetItem);
 	}
 
 	function closeSocket() {
