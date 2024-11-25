@@ -39,7 +39,7 @@ $(document).ready(() => {
 				const skeet = data.commit.record.text ?? false;
 				const postID = data.commit.rkey ?? false;
 
-				if (skeet.toLowerCase().indexOf(hashtag) !== -1) {
+				if (skeet.toLowerCase().indexOf(hashtag.toLowerCase()) !== -1) {
 					$.ajax('https://plc.directory/' + data.did).done((res) => {
 						let username = res.alsoKnownAs[0] ?? false;
 
