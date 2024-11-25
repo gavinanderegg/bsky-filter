@@ -16,7 +16,7 @@ body {
 }
 
 header {
-	background: linear-gradient(0deg, #DDE 0%, #99A 100%);
+	background: #DDD;
 	border-bottom: 2px solid #BBB;
 	text-align: center;
 	padding: 1.2em 0.8em 0.8em 0.8em;
