@@ -60,6 +60,11 @@ header {
 		background: linear-gradient(0deg, rgba(238,238,238,1) 0%, rgba(160,160,160,1) 100%);
 	}
 
+	.readMore {
+		margin: 0;
+		padding-top: 0.4em;
+	}
+
 	#counter {
 		margin: 0;
 		padding-top: 0.4em;
@@ -73,10 +78,6 @@ header {
 	padding: 1.2em;
 	background: #FFF;
 	min-height: 100vh;
-}
-
-main {
-
 }
 
 #skeetContainer {
